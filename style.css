@@ -1,0 +1,590 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 550px;
+    background-color: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0;
+    color: #2563eb;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.game-stats p {
+    flex: 1;
+    background-color: #f1f5f9;
+    padding: 15px 5px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.game-stats span {
+    display: block;
+    margin-top: 8px;
+    font-size: 24px;
+    color: #2563eb;
+}
+
+.number-card {
+    background-color: #dbeafe;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.number-card h2 {
+    font-size: 64px;
+    margin: 10px 0;
+    color: #1d4ed8;
+}
+
+.game-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.game-buttons button {
+    flex: 1;
+    background-color: #2563eb;
+    color: white;
+}
+
+.game-buttons button:hover:not(:disabled) {
+    background-color: #1d4ed8;
+}
+
+button:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+button:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+#message {
+    min-height: 50px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+#message.success {
+    color: #15803d;
+}
+
+#message.error {
+    color: #dc2626;
+}
+
+#message.game-over {
+    color: #991b1b;
+}
+
+#restartBtn {
+    width: 100%;
+    background-color: #334155;
+    color: white;
+}
+
+#restartBtn:hover {
+    background-color: #1e293b;
+}
+
+@media (max-width: 575px) {
+    .game-container {
+        padding: 20px;
+    }
+
+    .game-stats {
+        gap: 5px;
+    }
+
+    .game-stats p {
+        font-size: 12px;
+        padding: 12px 4px;
+    }
+
+    .game-stats span {
+        font-size: 20px;
+    }
+
+    .number-card h2 {
+        font-size: 48px;
+    }
+
+    .game-buttons {
+        flex-direction: column;
+    }
+}
+
+/* TASK 2 - KANBAN BOARD */
+
+body.kanban-page {
+    display: block;
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 20px;
+    background-color: #f1f5f9;
+    font-family: Arial, sans-serif;
+    color: #1e293b;
+}
+
+.kanban-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.kanban-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.kanban-header h1 {
+    color: #2563eb;
+    font-size: 32px;
+}
+
+.kanban-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.kanban-controls label {
+    font-weight: bold;
+}
+
+.kanban-controls input,
+.kanban-controls select {
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.kanban-controls input {
+    flex: 1 1 200px;
+    min-width: 0;
+}
+
+.kanban-controls select {
+    flex: 1 1 150px;
+    min-width: 0;
+}
+
+.kanban-progress {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.kanban-progress h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+#progressBar {
+    width: 100%;
+    height: 20px;
+    accent-color: #2563eb;
+}
+
+#progressText {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+#boardMessage {
+    min-height: 24px;
+    font-weight: bold;
+}
+
+#boardMessage.error {
+    color: #dc2626;
+}
+
+#boardMessage.success {
+    color: #15803d;
+}
+
+.kanban-board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.kanban-column {
+    min-width: 0;
+    background-color: #e2e8f0;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.kanban-column h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    overflow-wrap: anywhere;
+}
+
+.task-card h3 {
+    margin-top: 0;
+    font-size: 17px;
+}
+
+.task-card p {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.5;
+}
+
+.task-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.task-buttons button {
+    flex: 1;
+    background-color: #2563eb;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.task-buttons button:hover {
+    background-color: #1d4ed8;
+}
+
+.kanban-page button:focus-visible,
+.kanban-page input:focus-visible,
+.kanban-page select:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+    .kanban-board {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .kanban-column:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    body.kanban-page {
+        padding: 15px 10px;
+    }
+
+    .kanban-header h1 {
+        font-size: 25px;
+    }
+
+    .kanban-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .kanban-controls input,
+    .kanban-controls select {
+        flex: none;
+        width: 100%;
+    }
+
+    .kanban-board {
+        grid-template-columns: 1fr;
+    }
+
+    .kanban-column:last-child {
+        grid-column: auto;
+    }
+}
+
+/* TASK 3 - TICKET BUILDER */
+
+body.ticket-page {
+    display: block;
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 20px;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    font-family: Arial, sans-serif;
+}
+
+.ticket-container {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.ticket-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.ticket-header h1 {
+    color: #2563eb;
+    font-size: 32px;
+}
+
+.ticket-header p {
+    color: #64748b;
+}
+
+.ticket-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+.ticket-form-panel,
+.ticket-preview-panel {
+    min-width: 0;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.ticket-form-panel h2,
+.ticket-preview-panel h2 {
+    margin-top: 0;
+    font-size: 23px;
+}
+
+.ticket-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.ticket-field label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.ticket-field input,
+.ticket-field select {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: white;
+    color: #1e293b;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.ticket-field input:focus,
+.ticket-field select:focus {
+    outline: 3px solid #bfdbfe;
+    border-color: #2563eb;
+}
+
+.ticket-field input.invalid,
+.ticket-field select.invalid {
+    border-color: #dc2626;
+    background-color: #fef2f2;
+}
+
+.ticket-field input.valid,
+.ticket-field select.valid {
+    border-color: #16a34a;
+}
+
+.field-error {
+    display: block;
+    min-height: 0;
+    color: #dc2626;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.field-error:empty {
+    display: none;
+}
+
+.form-summary {
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #dc2626;
+    border-radius: 8px;
+    background-color: #fef2f2;
+    color: #991b1b;
+    font-weight: bold;
+}
+
+.form-summary[hidden] {
+    display: none;
+}
+
+.book-button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.book-button:hover {
+    background-color: #1d4ed8;
+}
+
+.book-button:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+.book-button:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.ticket-preview {
+    padding: 22px;
+    border: 2px dashed #93c5fd;
+    border-radius: 12px;
+    background-color: #eff6ff;
+    overflow-wrap: anywhere;
+}
+
+.ticket-preview p {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid #bfdbfe;
+}
+
+.ticket-preview p:last-child {
+    border-bottom: none;
+}
+
+.ticket-preview strong {
+    text-align: right;
+}
+
+.booking-result {
+    margin-top: 20px;
+}
+
+.booking-result:empty {
+    display: none;
+}
+
+.final-ticket {
+    padding: 20px;
+    background-color: #f0fdf4;
+    border: 2px solid #16a34a;
+    border-radius: 12px;
+    overflow-wrap: anywhere;
+}
+
+.final-ticket h3 {
+    margin-top: 0;
+    color: #15803d;
+}
+
+.final-ticket p {
+    margin: 10px 0;
+}
+
+@media (max-width: 767px) {
+    body.ticket-page {
+        padding: 15px 10px;
+    }
+
+    .ticket-header h1 {
+        font-size: 26px;
+    }
+
+    .ticket-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .ticket-form-panel,
+    .ticket-preview-panel {
+        padding: 20px;
+    }
+
+    .ticket-preview p {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .ticket-preview strong {
+        text-align: left;
+    }
+}
+

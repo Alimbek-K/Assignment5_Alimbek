@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event Ticket Builder</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/task3.js" defer></script>
+</head>
+
+<body class="ticket-page">
+
+    <main class="ticket-container">
+
+        <header class="ticket-header">
+            <h1>Event Ticket Builder</h1>
+            <p>Create your ticket and see the preview in real time.</p>
+        </header>
+
+        <div class="ticket-layout">
+
+            <section class="ticket-form-panel">
+                <h2>Booking Details</h2>
+
+                <p id="formSummary" class="form-summary"
+                   role="alert" tabindex="-1" hidden></p>
+
+                <form id="ticketForm">
+
+                    <div class="ticket-field">
+                        <label for="event">Event *</label>
+                        <select id="event" name="event" required>
+                            <option value="">Choose an event</option>
+                            <option value="football">Football Match</option>
+                            <option value="concert">Music Concert</option>
+                            <option value="esports">Esports Tournament</option>
+                        </select>
+                        <small id="eventError" class="field-error"></small>
+                    </div>
+
+                    <div class="ticket-field">
+                        <label for="eventDate">Date *</label>
+                        <select id="eventDate" name="eventDate" required>
+                            <option value="">Choose a date</option>
+                            <option value="2026-11-10">November 10, 2026</option>
+                            <option value="2026-11-15">November 15, 2026</option>
+                            <option value="2026-11-20">November 20, 2026</option>
+                        </select>
+                        <small id="eventDateError" class="field-error"></small>
+                    </div>
+
+                    <div class="ticket-field">
+                        <label for="ticketType">Ticket Type *</label>
+                        <select id="ticketType" name="ticketType" required>
+                            <option value="">Choose ticket type</option>
+                            <option value="standard">Standard</option>
+                            <option value="premium">Premium</option>
+                            <option value="vip">VIP</option>
+                        </select>
+                        <small id="ticketTypeError" class="field-error"></small>
+                    </div>
+
+                    <div class="ticket-field">
+                        <label for="quantity">Quantity *</label>
+                        <input type="number" id="quantity" name="quantity"
+                               min="1" max="6" step="1" required>
+                        <small id="quantityError" class="field-error"></small>
+                    </div>
+
+                    <div class="ticket-field">
+                        <label for="customerName">Full Name *</label>
+                        <input type="text" id="customerName"
+                               name="customerName"
+                               minlength="2" maxlength="50" required>
+                        <small id="customerNameError" class="field-error"></small>
+                    </div>
+
+                    <div class="ticket-field">
+                        <label for="customerEmail">Email *</label>
+                        <input type="email" id="customerEmail"
+                               name="customerEmail" required>
+                        <small id="customerEmailError" class="field-error"></small>
+                    </div>
+
+                    <div class="ticket-field">
+                        <label for="promoCode">Promo Code (Optional)</label>
+                        <input type="text" id="promoCode"
+                               name="promoCode"
+                               placeholder="Enter promo code">
+                        <small id="promoCodeError" class="field-error"></small>
+                    </div>
+
+                    <button type="submit" id="bookBtn" class="book-button">
+                        Book Ticket
+                    </button>
+
+                </form>
+            </section>
+
+            <section class="ticket-preview-panel">
+                <h2>Live Ticket Preview</h2>
+
+                <div class="ticket-preview" id="ticketPreview">
+                    <p>Event: <strong id="previewEvent">Not selected</strong></p>
+                    <p>Date: <strong id="previewDate">Not selected</strong></p>
+                    <p>Type: <strong id="previewType">Not selected</strong></p>
+                    <p>Quantity: <strong id="previewQuantity">0</strong></p>
+                    <p>Name: <strong id="previewName">Not entered</strong></p>
+                    <p>Email: <strong id="previewEmail">Not entered</strong></p>
+                    <p>Discount: <strong id="previewDiscount">0%</strong></p>
+                    <p>Total: <strong id="previewTotal">0 KZT</strong></p>
+                </div>
+
+                <div id="bookingResult" class="booking-result"
+                     role="status" aria-live="polite"></div>
+            </section>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

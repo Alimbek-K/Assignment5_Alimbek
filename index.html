@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Higher or Lower Game</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/task1.js" defer></script>
+</head>
+
+<body>
+
+    <main class="game-container">
+
+        <h1>Higher or Lower</h1>
+
+        <p>Guess whether the next number will be higher or lower.</p>
+
+        <div class="game-stats">
+            <p>Lives: <span id="lives">3</span></p>
+            <p>Streak: <span id="streak">0</span></p>
+            <p>Best Streak: <span id="bestStreak">0</span></p>
+        </div>
+
+        <div class="number-card">
+            <p>Current Number</p>
+            <h2 id="currentNumber">?</h2>
+        </div>
+
+        <div class="game-buttons">
+            <button id="higherBtn" type="button">Higher</button>
+            <button id="lowerBtn" type="button">Lower</button>
+        </div>
+
+        <p id="message" role="status" aria-live="polite">
+            Make your first guess!
+        </p>
+
+        <button id="restartBtn" type="button">Restart Game</button>
+
+    </main>
+
+</body>
+
+</html>
